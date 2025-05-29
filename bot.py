@@ -250,10 +250,8 @@ def main():
     app.add_handler(CommandHandler("start", start))
     app.add_handler(CommandHandler("help", help_command))
     
-    # Обработчик текстовых сообщений (для кнопок)
     app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, handle_message))
-    
-    # Обработчики callback-запросов (для инлайн-кнопок)
+
     app.add_handler(CallbackQueryHandler(show_anime_details, pattern="^details_"))
     
     app.run_polling()
